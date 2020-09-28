@@ -1,9 +1,9 @@
 import React from 'react'
 import { Divider, ListItem } from '@chakra-ui/core'
 
-const CustomListItem = ({ children }) => {
+const CustomListItem = ({ children, ...props }) => {
   return (
-    <ListItem cursor="pointer" _hover={{ bg: 'gray.100' }}>
+    <ListItem cursor="pointer" _hover={{ bg: 'gray.100' }} {...props}>
       {children}
       <Divider mb={0} />
     </ListItem>
