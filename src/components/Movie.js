@@ -1,14 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import MovieColumn from './MovieColumn'
 import CustomListItem from './CustomListItem'
-import { MovieContext } from '../context'
+import { useDispatch } from '../hooks'
+import { setSelectedMovie } from '../context/actions'
 
 const Movie = ({ movie }) => {
-  const { dispatch } = useContext(MovieContext)
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(setSelectedMovie(movie))
+  }
 
   return (
-    <CustomListItem
-      onClick={() => dispatch({ type: 'SET_SELECTED_MOVIE', payload: movie })}>
+    <CustomListItem onClick={handleClick}>
       <MovieColumn
         title={movie.title}
         episode={movie.episode_id}
