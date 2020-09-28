@@ -2,7 +2,9 @@ import React from 'react'
 import Movie from './Movie'
 import { List } from '@chakra-ui/core'
 
-const MovieList = () => {
+const MovieList = ({ movies }) => {
+  if (!movies) return null
+
   return (
     <List
       style={{
@@ -10,12 +12,9 @@ const MovieList = () => {
         textAlign: 'left',
         textIndent: '1rem',
       }}>
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
+      {movies.map(movie => (
+        <Movie movie={movie.fields} key={movie.id} />
+      ))}
     </List>
   )
 }
