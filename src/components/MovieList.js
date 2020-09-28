@@ -1,9 +1,12 @@
 import React from 'react'
-import Movie from './Movie'
 import { List } from '@chakra-ui/core'
+import Movie from './Movie'
+import { useFilteredMovies } from '../hooks'
 
-const MovieList = ({ movies }) => {
-  if (!movies) return null
+const MovieList = () => {
+  const filteredMovies = useFilteredMovies()
+
+  if (!filteredMovies) return null
 
   return (
     <List
@@ -12,7 +15,7 @@ const MovieList = ({ movies }) => {
         textAlign: 'left',
         textIndent: '1rem',
       }}>
-      {movies.map(movie => (
+      {filteredMovies.map(movie => (
         <Movie movie={movie.fields} key={movie.id} />
       ))}
     </List>
