@@ -3,7 +3,7 @@ import Header from './components/Header'
 import MovieList from './components/MovieList'
 import SelectedMovie from './components/SelectedMovie'
 import { Box, CSSReset, Grid, ThemeProvider } from '@chakra-ui/core'
-import { useMovies } from './hooks/useMovies'
+import { useMovies } from './hooks'
 import { MovieContextProvider } from './context'
 
 function App() {

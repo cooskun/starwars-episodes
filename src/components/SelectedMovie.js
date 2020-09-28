@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Heading, Stack, Text, Flex } from '@chakra-ui/core'
-import { MovieContext } from '../context'
+import { useSelectedMovie } from '../hooks'
 
 const SelectedMovie = () => {
-  const {
-    state: { selectedMovie },
-  } = useContext(MovieContext)
+  const selectedMovie = useSelectedMovie()
 
   if (!selectedMovie)
     return (
